@@ -6,6 +6,7 @@ const nexmo = new Nexmo({
   apiSecret: "3Gp7OFe35mbC3y8D"
 });
 
+//function with for loop to run through allies and send a message to each phone number
 nexmo.message.sendSms(
     12092694056, '17735435117', 'yo',
       (err, responseData) => {
