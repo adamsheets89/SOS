@@ -1,7 +1,7 @@
 // Download the Node helper library from twilio.com/docs/node/install
 // These consts are your accountSid and authToken from https://www.twilio.com/console
-const accountSid = 'AC098085aa798af1740ddae4887c12d468';
-const authToken = '916d4a5195ba666b936ec6cf070c2f62';
+const accountSid = '';
+const authToken = '';
 const client = require('twilio')(accountSid, authToken);
 
 client.messages
