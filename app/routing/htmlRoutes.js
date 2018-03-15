@@ -1,6 +1,4 @@
 
-//javascript function to take user inputs and update allies_db
-
 var index = function (app) {
     app.get("/", function (req, res) {
         res.render("../views/index")

@@ -13,10 +13,12 @@ app.set("view engine", "handlebars");
 
 //route controllers
 var htmlController = require("./app/routing/htmlRoutes.js");
+var postController = require("./app/routing/postRoutes.js");
 
 htmlController.index(app);
 htmlController.allies(app);
 htmlController.sendHelp(app);
+postController.updateDB(app);
 
 app.listen(port, function () {
     console.log("We are connected at " + port)
