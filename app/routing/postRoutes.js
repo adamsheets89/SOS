@@ -1,6 +1,6 @@
 var connection = require("../../config/connection")
 
-var addAlliesToDB = function (app) {
+var updateDB = function (app) {
     app.post("/allies", function (req, res) {
         var allyName = req.body.name;
         var allyPhone = req.body.phone;
@@ -19,4 +19,4 @@ var addAlliesToDB = function (app) {
     })
 }
 
-module.exports = addAlliesToDB;
+module.exports = {updateDB: updateDB}
