@@ -2,10 +2,16 @@
 var exphbs = require("express-handlebars");
 var mysql = require("mysql");
 var express = require("express");
+var bodyParser = require("body-parser");
+var path = require("path");
 
 var app = module.exports = express(); 
 
 var port = 4040;
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "app/views")));
+app.use(bodyParser.json());
 
 //handlesbars as default template
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

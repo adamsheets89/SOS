@@ -45,7 +45,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-    $("#submit".on("click", function(event){
+    $("#submit").on("click", function(event){
         event.preventDefault();
         $.post("../app/routing/postRoutes.js", $("#form").serialize(), function(data) {
             //sent to ther data to database
@@ -53,7 +53,7 @@
             // connect to exported function that is in the3 api route
 
             $("#new-allies").append(
-       "<tr class='allies'><td>" + data.name
+       "<tr><td>" + data.name +
        "</td><td scope='employee role'> " + data.phone +
        "</td><td scope='start date'> " + data.email +
        "</td></tr>");
