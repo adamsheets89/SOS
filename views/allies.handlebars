@@ -1,39 +1,64 @@
 {{!-- this is the file where we will be making a form that takes in the data of whatever eas out and stores it in the tabel
---}}
- {{!-- make the form --}}
- 
-  {{!-- NAME --}}
-<form method="POST" action="/allies">
+--}} {{!-- make the form --}} {{!-- NAME --}}
+<form id="form" method="POST" action="/allies">
     <div class="row">
         <div class="col">
+            <label for="exampleFormControlInput3">Name: </label>
             <input name="name" type="text" class="form-control" placeholder="Name">
         </div>
     </div>
-</form>
-{{!-- NAME END --}} 
 
+    {{!-- NAME END --}} {{!-- PHONE START --}}
 
-{{!-- PHONE START --}}
-<form method="POST" action="/allies">
     <div class="row">
         <div class="col">
             <label for="exampleFormControlInput2">Phone Number: </label>
             <input name="phone" type="Phone Number" class="form-control" placeholder="Enter Phone Number">
         </div>
     </div>
-</form>
-{{!-- PHONE END --}}
 
+    {{!-- PHONE END --}} {{!-- EMAIL --}}
 
- {{!-- EMAIL --}}
-<form method="POST" action="/allies">
     <div class="form-group">
         <label for="exampleFormControlInput3">Email Address: </label>
         <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
     </div>
+
+    <button  id="submit" type="button" class="btn btn-danger">Submit Friend</button>
+
 </form>
-{{!-- END EMAIL --}} {{!-- do a value thing and set the variable of value in the form to thew same one --}}
 
+<div id="tableContainer">
+    <h2> Your Allies </h2>
+<table>
+    <thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+  </tr>
+  </thead>
+  <tbody id="new-allies">
+  </tbody>
+</table>
+</div>
 
- {{!-- equal the
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $("#submit").on("click", function(event){
+        event.preventDefault();
+        $.post("../app/routing/postRoutes.js", $("#form").serialize(), function(data) {
+            //sent to ther data to database
+            // make div show up at bottom that shows the poeple tht they have added to their friends and things
+            // connect to exported function that is in the3 api route
+
+            $("#new-allies").append(
+       "<tr><td>" + data.name +
+       "</td><td scope='employee role'> " + data.phone +
+       "</td><td scope='start date'> " + data.email +
+       "</td></tr>");
+        })
+    }))
+</script>
+{{!-- END EMAIL --}} {{!-- do a value thing and set the variable of value in the form to thew same one --}} {{!-- equal the
 values and the things that you eill be inserting but equal them like {{whatevs}}--}}
