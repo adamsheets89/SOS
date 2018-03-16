@@ -9,11 +9,11 @@ var app = module.exports = express();
 
 var connection = require("./app/config/connection")
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "./app/public")));
+app.use(express.static(path.join(__dirname, "./app")));
 app.use(bodyParser.json());
 
 //handlesbars as default template
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ defaultLayout: "../../app/views/layouts/main" }));
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "./app/views"));
 
