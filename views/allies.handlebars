@@ -47,7 +47,7 @@
 <script>
     $("#submit").on("click", function(event){
         event.preventDefault();
-        $.post("../app/routing/postRoutes.js", $("#form").serialize(), function(data) {
+        $.post("/api/allies" $("#form").serialize(), function(data) {
             //sent to ther data to database
             // make div show up at bottom that shows the poeple tht they have added to their friends and things
             // connect to exported function that is in the3 api route

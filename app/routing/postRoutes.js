@@ -1,7 +1,11 @@
 var connection = require("../../config/connection")
 
 var updateDB = function (app) {
-    app.post("/allies", function (req, res) {
+    // need another route for pulling up all existing allies
+    // app.get("/api/allies")
+
+    // this is route for adding an ally
+    app.post("/api/allies", function (req, res) {
         var allyName = req.body.name;
         var allyPhone = req.body.phone;
         var allyEmail = req.body.email;
