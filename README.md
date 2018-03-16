@@ -1,5 +1,5 @@
 # SOS
-<!-- Project Title – S.O.S
+ Project Title – S.O.S
 •	Team Members –Erika Delgado, Marilyn Pagan, Adam Sheets
 •	Project Description:
 S.O.S is a mobile application that will allow the user to discreetly send out to their network of ‘allies’ a message if they find themselves in a precarious situation, such as a date gone wrong, stranded at a party, or just general discomfort in a social situation. A user will sign up via the application and provide a minimum of two contacts that will receive a message advising them of the situation at hand, whether uncomfortable or pleasant. 
@@ -30,5 +30,5 @@ Adam
 -Project management, layout design, SQL
 
 Marilyn
--API for messaging and layout design -->
+-API for messaging and layout design 
 
