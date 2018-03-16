@@ -1,9 +1,13 @@
 # SOS
  Project Title – S.O.S
-•	Team Members –Erika Delgado, Marilyn Pagan, Adam Sheets
+•	Team Members 
+–Erika Delgado, Marilyn Pagan, Adam Sheets
+
 •	Project Description:
 S.O.S is a mobile application that will allow the user to discreetly send out to their network of ‘allies’ a message if they find themselves in a precarious situation, such as a date gone wrong, stranded at a party, or just general discomfort in a social situation. A user will sign up via the application and provide a minimum of two contacts that will receive a message advising them of the situation at hand, whether uncomfortable or pleasant. 
+
 •	The "Who, What, Why" - Who needs your app, what your app does, and why it is valuable.
+
 Who is this product focusing on?
 - Initially this application will be aim at females between the age of 16-30, as studies have shown they are the most vulnerable in social settings.
 
@@ -20,9 +24,12 @@ Why is this product needed?
 Name: Betty Jones
 Demographic: Female, 16-30 years old
 Image: Single female, attending normal social situations such as bars, lounges, restaurants, parties
+
 •	Sketch of Final Product
+
 •	Summary of "MVP" - Minimum Viable Product
 -	Our ‘MVP’ will consist of users being able to sign up and send one automated message to their ‘Allies’
+
 •	Rough Breakdown of Tasks
 Erika
 -	Handle bars and layout
