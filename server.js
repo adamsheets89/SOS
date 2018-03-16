@@ -7,9 +7,9 @@ var path = require("path");
 
 var app = module.exports = express(); 
 
-var connection = require("./config/connection")
+var connection = require("./app/config/connection")
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "app/views")));
+app.use(express.static(path.join(__dirname, "./app/public")));
 app.use(bodyParser.json());
 
 //handlesbars as default template

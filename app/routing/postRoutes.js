@@ -1,4 +1,4 @@
-var connection = require("../../config/connection")
+var connection = require("../config/connection")
 
 
 // need another route for pulling up all existing allies
