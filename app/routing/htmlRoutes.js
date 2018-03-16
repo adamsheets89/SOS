@@ -34,5 +34,6 @@ module.exports = {
     index: index,
     allies: allies,
     createAccount: createAccount,
+    login: login,
     sendHelp: sendHelp
 };
