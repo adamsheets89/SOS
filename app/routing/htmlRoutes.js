@@ -17,6 +17,12 @@ var createAccount = function (app) {
     })
 };
 
+var login = function (app) {
+    app.get("/login", function (req, res) {
+        res.render("../views/login")
+    })
+};
+
 //this one will need to display the call buttons for the user to select 
 var sendHelp = function (app) {
     app.get("/call", function (req, res) {
