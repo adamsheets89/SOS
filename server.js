@@ -15,6 +15,8 @@ app.use(bodyParser.json());
 //handlesbars as default template
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+app.set("views", path.join(__dirname, "./app/views"));
+
 
 //route controllers
 var htmlController = require("./app/routing/htmlRoutes.js");
