@@ -31,8 +31,10 @@ Image: Single female, attending normal social situations such as bars, lounges, 
 -	Our ‘MVP’ will consist of users being able to sign up and send one automated message to their ‘Allies’
 
 •	Rough Breakdown of Tasks
+
 Erika
 -	Handle bars and layout
+
 Adam
 -Project management, layout design, SQL
 
