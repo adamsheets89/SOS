@@ -1,6 +1,19 @@
 .jumbotron {
     font-size: 20px;
-    background-color: red;
-    color: white;
+    background-color: white;
+}
 
+#SOS {
+    margin-left: 540px;
+    margin-top: 0px;
+
+}
+
+.btn {
+    margin-right: 0px;
+    margin-left: 280px;
+    padding: 20px;
+    width: 350px;
+    font-size: 50px;
+    border-radius: 25px;
 }
