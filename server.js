@@ -22,6 +22,7 @@ var postController = require("./app/routing/postRoutes.js");
 
 htmlController.index(app);
 htmlController.allies(app);
+htmlController.createAccount(app);
 htmlController.sendHelp(app);
 postController.updateDB(app);
 postController.displayDB(app);
