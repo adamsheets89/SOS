@@ -43,6 +43,23 @@ var updateDB = function (app) {
     })
 }
 
+var newUser = function (app) {
+    app.post("/api/users", function (req, res) {
+        var fullName = req.body.name;
+        var username = req.body.username;
+        var userEmail = req.body.email;
+        var userPhone =  req.body.phone;
+        var userPass = req.body.password;
+
+        console.log("54 " + fullName);
+        console.log("55 " + username);
+        console.log("56 " + userEmail);
+        console.log("57 " + userPhone);
+        console.log("58 " + userPass);
+    })
+
+}
+
 module.exports = { 
     updateDB: updateDB,
     displayDB: displayDB

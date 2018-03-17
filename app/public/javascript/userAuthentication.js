@@ -8,19 +8,19 @@ var cookieParser = require("cookie-parser");
 var session = require("express-session");
 
 
-router.get('/new-user', function(req,res) {
-    res.render('');
-  });
+// router.get('/new-user', function(req,res) {
+//     res.render('');
+//   });
   
-  router.get('/login', function(req,res) {
-    res.render('users/sign_in');
-  });
+//   router.get('/login', function(req,res) {
+//     res.render('users/sign_in');
+//   });
   
-  router.get('/sign-out', function(req,res) {
-    req.session.destroy(function(err) {
-       res.redirect('/')
-    })
-  });
+//   router.get('/sign-out', function(req,res) {
+//     req.session.destroy(function(err) {
+//        res.redirect('/')
+//     })
+//   });
   
   //if user trys to sign in with the wrong password or email tell them that on the page
   router.post('/login', function(req, res) {
@@ -88,5 +88,5 @@ router.get('/new-user', function(req,res) {
   
   });
   
-  module.exports = router;
+  module.exports = {router: router}
   
