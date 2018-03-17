@@ -1,11 +1,11 @@
-var bycrypt = require("bycrypt");
+var bcrypt = require("bcrypt");
 var express = require("express");
 var router = express.Router();
 var mysql = require("mysql");
 var connection = require("../../config/connection.js");
 var app = module.exports = express();
 var cookieParser = require("cookie-parser");
-var session = require("expire-session");
+var session = require("express-session");
 
 
 router.get('/new-user', function(req,res) {
