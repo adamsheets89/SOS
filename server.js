@@ -21,6 +21,7 @@ app.set("views", path.join(__dirname, "./app/views"));
 //route controllers
 var htmlController = require("./app/routing/htmlRoutes.js");
 var postController = require("./app/routing/postRoutes.js");
+var usersController = require("../../../userAuthentication.js");
 
 htmlController.index(app);
 htmlController.allies(app);
