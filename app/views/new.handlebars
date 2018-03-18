@@ -30,7 +30,8 @@
     $("#submit").on("click", function (event) {
         event.preventDefault();
         var newUserObj = {
-            name: $("#first-name").val() + (" ") + $("#last-name").val(),
+            firstName: $("#first-name").val(),
+            lastName: $("#last-name").val(),
             email: $("#email").val(),
             phone: $("#phone").val(),
             username: $("#username").val(),
@@ -38,7 +39,7 @@
         }
         console.log("line 40" + JSON.stringify(newUserObj));
         $.post("/api/users", newUserObj, function(data) {
-            
+
         })
 
     })
