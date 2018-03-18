@@ -64,7 +64,7 @@ var session = require("express-session");
               res.send(hash)          
               var query = "INSERT INTO users (user_id, email_add, user_password, phone_number) VALUES (?, ?, ?, ?)"
   
-              connection.query(query, [ req.body.username, req.body.email, hash, req.body.phone ], function(err, response) {
+              connection.query(query, [ req.body.user_id, req.body.email_add, req.body.user_password, req.body.phone_number ], function(err, response) {
   
                 req.session.logged_in = true;
   
