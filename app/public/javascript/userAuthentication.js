@@ -8,14 +8,6 @@ var cookieParser = require("cookie-parser");
 var session = require("express-session");
 
 
-// router.get('/new-user', function(req,res) {
-//     res.render('');
-//   });
-  
-//   router.get('/login', function(req,res) {
-//     res.render('users/sign_in');
-//   });
-  
 //   router.get('/sign-out', function(req,res) {
 //     req.session.destroy(function(err) {
 //        res.redirect('/')
