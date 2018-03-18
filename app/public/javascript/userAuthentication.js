@@ -59,10 +59,10 @@ var session = require("express-session");
       }else{
   
         bcrypt.genSalt(10, function(err, salt) {
-            //res.send(salt); //$2a$10$iFzdRYHKrNSOzwS/SDI/W.
+            res.send(salt); 
             bcrypt.hash(req.body.password, salt, function(err, hash) {  
-              //res.send(hash)          
-              var query = "INSERT INTO users (username, email, password_hash, phoney) VALUES (?, ?, ?, ?)"
+              res.send(hash)          
+              var query = "INSERT INTO users (user_id, email_add, user_password, phone_number) VALUES (?, ?, ?, ?)"
   
               connection.query(query, [ req.body.username, req.body.email, hash, req.body.phone ], function(err, response) {
   
@@ -72,9 +72,10 @@ var session = require("express-session");
   
                 var query = "SELECT * FROM users WHERE id = ?"
                 connection.query(query, [ req.session.user_id ], function(err, response) {
-                  req.session.username = response[0].username;
-                  req.session.user_email = response[0].email;
-                  req.session.phone = response[0].phone;
+                  req.session.user_id = response[0].username;
+                  req.session.email_add = response[0].email;
+                  req.session.phone_number = response[0].phone;
+                  req.session.user_password= response[0].password
   
                   res.redirect('')
                 });
