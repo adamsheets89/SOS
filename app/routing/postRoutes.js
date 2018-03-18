@@ -62,5 +62,6 @@ var newUser = function (app) {
 
 module.exports = { 
     updateDB: updateDB,
-    displayDB: displayDB
+    displayDB: displayDB,
+    newUser: newUser
  }
