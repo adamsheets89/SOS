@@ -17,3 +17,35 @@
     font-size: 50px;
     border-radius: 25px;
 }
+
+#ok {
+    display: inline-block;
+    height: 134px;
+    padding: 0;
+    margin: 50px;
+    vertical-align: top;
+    width: 104px;
+}
+
+#call {
+    display: inline-block;
+    height: 134px;
+    padding: 0;
+    margin: 50px;
+    vertical-align: top ;
+    width: 104px;
+}
+
+#help {
+    display: inline-block;
+    height: 134px;
+    padding: 0;
+    margin: 50px;
+    vertical-align: top;
+    width: 104px;
+}
+
+button{
+    vertical-align: middle;
+}
+
