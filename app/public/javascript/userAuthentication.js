@@ -8,7 +8,6 @@
 // var session = require("express-session");
 
 
-
 // // Place this in function to redirect to /login
 //     var query = "SELECT * FROM users WHERE email = ?";
   

@@ -6,7 +6,7 @@ if (app.settings.env == 'development') {
         port: 3306,
         host: "localhost",
         user: "root",
-        password: "",
+        password: "root",
         database: "SOS_db"
     });
 } else {

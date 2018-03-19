@@ -4,8 +4,8 @@
 
 
     <div class="form-group">
-        <label for="Name"></label>
-        <input type="text" placeholder="Full Name" id="full_name" name="full_name">
+        <label for="name"></label>
+        <input type="text" placeholder="Full Name" id="full-name" name="name">
         <br>
         <label for="email_add"></label>
         <input type="text" placeholder="Email" id="email" name="email_add">
@@ -25,31 +25,3 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
-{{!-- 
-$(document).on('submit','form',function(event){
-		   event.preventDefault();
-           console.log("we made it")
-		   var method = $('form').attr('method');
-      
-		   var action = $('form').attr('action');
-                console.log(action)
-                console.log(method)
-		   var data = {
-		   	name: $("[name='name']").val(),
-		   	email_add: $("[name='email_add']").val(),
-		   	phone_number: $("[name='phone_number']").val(),
-		   	user_password: $("[name='user_password']").val()
-		   }
-		   $.ajax({
-		     type: method,
-		     url: action,
-		     data: data,
-		     success: function(json){
-		       $("#result").text(JSON.stringify(jso));
-               console.log("down here too")
-		     }
-		   });
-		});  --}}
-
-
-{{!-- FIX URL --}}

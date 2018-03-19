@@ -1,7 +1,7 @@
 var connection = require("../config/connection");
 var express = require("express");
 // get router
-var app =express();
+var app = express();
 // need another route for pulling up all existing allies
 // app.get("/api/allies")
 var displayDB = function (app) {
@@ -44,28 +44,41 @@ var updateDB = function (app) {
     })
 }
 
-var newUser = function(app) {
+var newUser = function (app) {
     app.post("/api/new-user", function (req, res) {
 
-        var fullName = req.body.full_name;
+        var fullName = req.body.name;
         var username = req.body.user_name;
         var email = req.body.email_add;
         var phone = req.body.phone_number;
         var password = req.body.user_password;
-        var queryInsert = "INSERT INTO users (full_name, email_add, user_password, phone_number)VALUES ("+ fullName +","+ username +", "+ email +", "+ phone +", "+ password +")"
+        console.log("name: " + fullName);
+        console.log("user: " + username);
+        console.log("email: " + email);
+        console.log("phone: " + phone);
+        console.log("password: " + password);
 
-        connection.query(queryInsert, function(err, result){
-            if (err) throw err;
-            console.log("One record inserted");
-        });
+        connection.query("INSERT INTO users SET ?",
+            {
+                full_name: fullName,
+                phone_number: phone,
+                email_add: email,
+                user_name: username,
+                user_password: password
+            },
+            
+            function (err, result) {
+                if (err) throw err;
+                console.log("One record inserted");
+            });
         res.send("IDK BUT IT WORKS")
     });
 }
 
 
-    module.exports = {
-        updateDB: updateDB,
-        displayDB: displayDB,
-        newUser: newUser
-    }
+module.exports = {
+    updateDB: updateDB,
+    displayDB: displayDB,
+    newUser: newUser
+}
 
