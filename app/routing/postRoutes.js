@@ -66,12 +66,12 @@ var newUser = function (app) {
                 user_name: username,
                 user_password: password
             },
-            
+
             function (err, result) {
                 if (err) throw err;
                 console.log("One record inserted");
             });
-        res.send("IDK BUT IT WORKS")
+        res.send("/allies")
     });
 }
 
