@@ -5,6 +5,7 @@ var bcrypt = require("bcrypt");
 var app = express();
 // need another route for pulling up all existing allies
 // app.get("/api/allies")
+
 var displayDB = function (app) {
     app.get("/api/allies", function (req, res) {
         connection.query("SELECT * FROM allies", function (err, results) {
@@ -33,6 +34,7 @@ var updateDB = function (app) {
                 ally_name: allyName,
                 phone_number: allyPhone,
                 email_add: allyEmail,
+                user_id: req.session.user_id,
             },
 
             function (err, data) {
@@ -45,34 +47,35 @@ var updateDB = function (app) {
     })
 }
 
-var login = function (router) {
-    router.post('/api/login', function (req, res) {
-        var query = "SELECT * FROM users WHERE email_add = ?";
- 
-        connection.query(query, [req.body.email_add], function (err, response) {
+var login = function (app) {
+    app.post('/api/login', function (req, res) {
+        console.log("youve hit /api/login")
+        var query = "SELECT * FROM users WHERE user_name = ?";
+
+        connection.query(query, [req.body.username], function (err, response) {
             if (response.length == 0) {
                 res.redirect('/')
             }
-            console.log("response: " + response)
-            bcrypt.compare(req.body.user_password, response[0].user_password, function (err, result) {
-                if (result == true) {
-                    console.log("line 61");
-                    req.session.logged_in = true;
-                    req.session.user_id = response[0].user_id;
-                    req.session.email_add = response[0].email_add;
-                    req.session.phone_number = response[0].phone_number;
-                    req.session.user_name = response[0].user_name;
-                    console.log("line 67");
-                    res.send('it works');
-                    console.log("here too");
-                } else {
-                    console.log("line 71");
-                    res.redirect('../index')
-                }
-            });
+            console.log("response: " + JSON.stringify(response));
+            console.log(req.body.password === response[0].user_password)
+
+            if (req.body.password === response[0].user_password) {
+                console.log("line 61");
+                req.session.logged_in = true;
+                req.session.user_id = response[0].user_id;
+                req.session.email_add = response[0].email_add;
+                req.session.phone_number = response[0].phone_number;
+                req.session.user_name = response[0].user_name;
+                console.log("line 67");
+                res.redirect('/allies');
+                console.log("here too");
+            } else {
+                console.log("line 71");
+                res.redirect('/')
+            }
         });
     });
- }
+}
 
 var newUser = function (app) {
     app.post("/api/new-user", function (req, res) {
@@ -108,7 +111,7 @@ var newUser = function (app) {
 module.exports = {
     updateDB: updateDB,
     displayDB: displayDB,
-    // login: login,
+    login: login,
     newUser: newUser
 }
 

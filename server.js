@@ -35,7 +35,7 @@ htmlController.sendHelp(app);
 postController.updateDB(app);
 postController.displayDB(app);
 postController.newUser(app);
-// postController.login(app);
+postController.login(app);
 
 var port = process.env.PORT || 4040;
 
