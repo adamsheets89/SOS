@@ -1,6 +1,7 @@
-var connection = require("../config/connection")
+var connection = require("../config/connection");
+var express = require("express");
 
-
+var app =express();
 // need another route for pulling up all existing allies
 // app.get("/api/allies")
 var displayDB = function (app) {
@@ -43,24 +44,40 @@ var updateDB = function (app) {
     })
 }
 
-var newUser = function (app) {
-    app.post("/api/users", function (req, res) {
+
+    app.post("/new-user", function (req, res) {
 
         var username = req.body.user_name;
         var email = req.body.email_add;
         var phone = req.body.phone_number;
         var password = req.body.user_password;
+        var queryInsert = "INSERT INTO users (user_id, email_add, user_password, phone_number)VALUES ("+ username +", "+ email +", "+ phone +", "+ password +")"
 
-        connection.query("INSERT INTO 'users' (user_name) VALUES (username)", username.toString(), function(err, result){
+        connection.query(queryInsert, function(err, result){
             if (err) throw err;
             console.log("One record inserted");
         });
-        res.send(username)
+        res.send("IDK BUT IT WORKS")
     });
+
+
+
+
+
+// var newUser = function (app) {
+// app.get("/new-user", function(req, res) {
+//     // findAll returns all entries for a table when used with no options
+//     db.User.findAll({}).then(function(SOS_db)) {
+//       //We have access to the user as an argument inside of the callback function
+//       res.json(SOS_db);
+//     });
+//   });
+
+
 
     module.exports = {
         // updateDB: updateDB,
         displayDB: displayDB,
-        newUser: newUser
+        // newUser: newUser
     }
-}
+

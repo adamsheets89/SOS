@@ -8,15 +8,8 @@
 // var session = require("express-session");
 
 
-// //   router.get('/sign-out', function(req,res) {
-// //     req.session.destroy(function(err) {
-// //        res.redirect('/')
-// //     })
-// //   });
-  
-//   //if user trys to sign in with the wrong password or email tell them that on the page
-//   router.post('/login', function(req, res) {
-    
+
+// // Place this in function to redirect to /login
 //     var query = "SELECT * FROM users WHERE email = ?";
   
 //     connection.query(query, [ req.body.email ], function(err, response) {
@@ -39,9 +32,8 @@
 //               }
 //           });
 //     });
-//   });
-  
-//   router.post('/new-user', function(req,res) {
+
+// // direct this to new user
 //     var query = "SELECT * FROM users WHERE email = ?"
   
 //     connection.query(query, [ req.body.email ], function(err, response) {
@@ -77,9 +69,4 @@
   
 //       }
 //     });
-  
-  
-//   });
-  
-//   module.exports = {router: router}
   
