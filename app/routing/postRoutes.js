@@ -1,6 +1,6 @@
 var connection = require("../config/connection");
 var express = require("express");
-
+// get router
 var app =express();
 // need another route for pulling up all existing allies
 // app.get("/api/allies")
@@ -44,8 +44,8 @@ var updateDB = function (app) {
     })
 }
 
-
-    app.post("/new-user", function (req, res) {
+var newUser = function(app) {
+    app.post("/api/new-user", function (req, res) {
 
         var fullName = req.body.full_name;
         var username = req.body.user_name;
@@ -60,25 +60,12 @@ var updateDB = function (app) {
         });
         res.send("IDK BUT IT WORKS")
     });
-
-
-
-
-
-// var newUser = function (app) {
-// app.get("/new-user", function(req, res) {
-//     // findAll returns all entries for a table when used with no options
-//     db.User.findAll({}).then(function(SOS_db)) {
-//       //We have access to the user as an argument inside of the callback function
-//       res.json(SOS_db);
-//     });
-//   });
-
+}
 
 
     module.exports = {
-        // updateDB: updateDB,
+        updateDB: updateDB,
         displayDB: displayDB,
-        // newUser: newUser
+        newUser: newUser
     }
 
