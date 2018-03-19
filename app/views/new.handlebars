@@ -23,24 +23,6 @@
     <button id="submit" type="submit">Create Account</button>
 </form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<<<<<<< HEAD
-<script>
-    $("#submit").on("click", function (event) {
-        event.preventDefault();
-        var newUserObj = {
-            firstName: $("#first-name").val(),
-            lastName: $("#last-name").val(),
-            email: $("#email").val(),
-            phone: $("#phone").val(),
-            username: $("#username").val(),
-            password: $("#password").val()
-        }
-        console.log("line 40" + JSON.stringify(newUserObj));
-        $.post("/api/users", newUserObj, function(data) {
-
-        })
-=======
->>>>>>> 9b580105f4d523f885bc0684587e90a0ca970b69
 
 
 {{!-- 
