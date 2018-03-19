@@ -4,11 +4,8 @@
 
 
     <div class="form-group">
-        <label for="first"></label>
-        <input type="text" placeholder="First Name" id="first-name" name="first">
-        <br>
-        <label for="last"></label>
-        <input type="text" placeholder="Last Name" id="last-name" name="last">
+        <label for="Name"></label>
+        <input type="text" placeholder="Full Name" id="first-name" name="first">
         <br>
         <label for="email_add"></label>
         <input type="text" placeholder="Email" id="email" name="email_add">
@@ -29,19 +26,8 @@
 <script>
     $("#submit").on("click", function (event) {
         event.preventDefault();
-        var newUserObj = {
-            name: $("#first-name").val() + (" ") + $("#last-name").val(),
-            email: $("#email").val(),
-            phone: $("#phone").val(),
-            username: $("#username").val(),
-            password: $("#password").val()
-        }
-        console.log("line 40" + JSON.stringify(newUserObj));
-        $.post("/api/users", newUserObj, function(data) {
-            
-        })
+      
 
-    })
-
-
+    });
 </script>
+

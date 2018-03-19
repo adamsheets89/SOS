@@ -46,18 +46,17 @@ var updateDB = function (app) {
 var newUser = function (app) {
     app.post("/api/users", function (req, res) {
 
-        console.log('You sent the name "' + req.body.user_name+'".\n');
-        console.log('You sent the Email "' + req.body.email_add+'".\n');
-        console.log('You sent the Phone number "' + req.body.phone_number+'".\n');
-        console.log('You sent the Password "' + req.body.user_password+'".\n');
-        res.end()
-        
-        connection.query("INSERT INTO users (user_name, email_add, phone_number, user_password) VALUES ('"+req.body.user_name+"','"+req.body.email_add+"','"+req.body.phone_number+"','"+req.body.user_password+"')",function(err, result)      
-        {                                                      
-          if (err)
-             throw err.stack;
+        var username = req.body.user_name;
+        var email = req.body.email_add;
+        var phone = req.body.phone_number;
+        var password = req.body.user_password;
+
+        connection.query("INSERT INTO 'users' (user_name) VALUES (username)", username.toString(), function(err, result){
+            if (err) throw err;
+            console.log("One record inserted");
         });
-        });
+        res.send(username)
+    });
 
     module.exports = {
         // updateDB: updateDB,
