@@ -47,11 +47,12 @@ var updateDB = function (app) {
 
     app.post("/new-user", function (req, res) {
 
+        var fullName = req.body.full_name;
         var username = req.body.user_name;
         var email = req.body.email_add;
         var phone = req.body.phone_number;
         var password = req.body.user_password;
-        var queryInsert = "INSERT INTO users (user_id, email_add, user_password, phone_number)VALUES ("+ username +", "+ email +", "+ phone +", "+ password +")"
+        var queryInsert = "INSERT INTO users (full_name, email_add, user_password, phone_number)VALUES ("+ fullName +","+ username +", "+ email +", "+ phone +", "+ password +")"
 
         connection.query(queryInsert, function(err, result){
             if (err) throw err;
