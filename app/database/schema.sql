@@ -7,7 +7,7 @@ CREATE TABLE users
     phone_number VARCHAR(14) NOT NULL,
     email_add VARCHAR(30),
     user_name VARCHAR(20) NOT NULL,
-    user_password VARCHAR(10) NOT NULL,
+    user_password TEXT(20) NOT NULL,
     PRIMARY KEY (user_id)
 )ENGINE=InnoDB;
 
