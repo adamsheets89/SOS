@@ -44,6 +44,7 @@ var updateDB = function (app) {
 }
 
 var newUser = function (app) {
+    
     app.post("/api/users", function (req, res) {
         var firstName = req.body.firstName;
         var lastName = req.body.lastName;

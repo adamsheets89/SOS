@@ -8,20 +8,20 @@ var cookieParser = require("cookie-parser");
 var session = require("express-session");
 
 
-// router.get('/new-user', function(req,res) {
-//     res.render('');
-//   });
+router.get('/new-user', function(req,res) {
+    res.render('');
+  });
   
-//   router.get('/login', function(req,res) {
-//     res.render('users/sign_in');
-//   });
+  router.get('/login', function(req,res) {
+    res.render('users/sign_in');
+  });
   
-//   router.get('/sign-out', function(req,res) {
-//     req.session.destroy(function(err) {
-//        res.redirect('/')
-//     })
-//   });
-  
+  router.get('/sign-out', function(req,res) {
+    req.session.destroy(function(err) {
+       res.redirect('/')
+    })
+  });
+
   //if user trys to sign in with the wrong password or email tell them that on the page
   router.post('/login', function(req, res) {
     
@@ -59,12 +59,12 @@ var session = require("express-session");
       }else{
   
         bcrypt.genSalt(10, function(err, salt) {
-            res.send(salt); 
+            //res.send(salt); //$2a$10$iFzdRYHKrNSOzwS/SDI/W.
             bcrypt.hash(req.body.password, salt, function(err, hash) {  
-              res.send(hash)          
-              var query = "INSERT INTO users (user_id, email_add, user_password, phone_number) VALUES (?, ?, ?, ?)"
+              //res.send(hash)          
+              var query = "INSERT INTO users (username, email, password_hash, phoney) VALUES (?, ?, ?, ?)"
   
-              connection.query(query, [ req.body.user_id, req.body.email_add, req.body.user_password, req.body.phone_number ], function(err, response) {
+              connection.query(query, [ req.body.username, req.body.email, hash, req.body.phone ], function(err, response) {
   
                 req.session.logged_in = true;
   
@@ -72,10 +72,9 @@ var session = require("express-session");
   
                 var query = "SELECT * FROM users WHERE id = ?"
                 connection.query(query, [ req.session.user_id ], function(err, response) {
-                  req.session.user_id = response[0].username;
-                  req.session.email_add = response[0].email;
-                  req.session.phone_number = response[0].phone;
-                  req.session.user_password= response[0].password
+                  req.session.username = response[0].username;
+                  req.session.user_email = response[0].email;
+                  req.session.phone = response[0].phone;
   
                   res.redirect('')
                 });
@@ -89,5 +88,4 @@ var session = require("express-session");
   
   });
   
-  module.exports = {router: router}
-  
+  module.exports = router;  
