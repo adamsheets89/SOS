@@ -1,31 +1,29 @@
 <h1>Get Started</h1>
-
-<form class="create-update-form" action="/layouts/new" method="POST">
+<div id="result"></div>
+<form class="create-update-form" action="/" method="POST">
 
 
     <div class="form-group">
-        <label for="first"></label>
-        <input type="text" placeholder="First Name" id="first-name" name="first">
+        <label for="Name"></label>
+        <input type="text" placeholder="Full Name" id="first-name" name="name">
         <br>
-        <label for="first"></label>
-        <input type="text" placeholder="Last Name" id="last-name" name="last">
-        <br>
-        <label for="email"></label>
+        <label for="email_add"></label>
         <input type="text" placeholder="Email" id="email" name="email_add">
         <br>
-        <label for="phone"></label>
+        <label for="phone_number"></label>
         <input type="number" placeholder="Phone" id="phone" name="phone_number">
         <br>
-        <label for="username"></label>
+        <label for="user_name"></label>
         <input type="text" placeholder="Username" id="username" name="user_name">
         <br>
-        <label for="pass"></label>
+        <label for="user_password"></label>
         <input type="password" placeholder="password" id="pass" name="user_password">
     </div>
 
     <button id="submit" type="submit">Create Account</button>
 </form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<<<<<<< HEAD
 <script>
     $("#submit").on("click", function (event) {
         event.preventDefault();
@@ -41,8 +39,35 @@
         $.post("/api/users", newUserObj, function(data) {
 
         })
+=======
+>>>>>>> 9b580105f4d523f885bc0684587e90a0ca970b69
 
-    })
+
+{{!-- 
+$(document).on('submit','form',function(event){
+		   event.preventDefault();
+           console.log("we made it")
+		   var method = $('form').attr('method');
+      
+		   var action = $('form').attr('action');
+                console.log(action)
+                console.log(method)
+		   var data = {
+		   	name: $("[name='name']").val(),
+		   	email_add: $("[name='email_add']").val(),
+		   	phone_number: $("[name='phone_number']").val(),
+		   	user_password: $("[name='user_password']").val()
+		   }
+		   $.ajax({
+		     type: method,
+		     url: action,
+		     data: data,
+		     success: function(json){
+		       $("#result").text(JSON.stringify(jso));
+               console.log("down here too")
+		     }
+		   });
+		});  --}}
 
 
-</script>
+{{!-- FIX URL --}}
