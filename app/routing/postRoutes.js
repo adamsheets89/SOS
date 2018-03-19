@@ -44,52 +44,15 @@ var updateDB = function (app) {
     })
 }
 
-<<<<<<< HEAD
-var newUser = function (app) {
-    
-    app.post("/api/users", function (req, res) {
-        var firstName = req.body.firstName;
-        var lastName = req.body.lastName;
-        var username = req.body.username;
-        var userEmail = req.body.email;
-        var userPhone = req.body.phone;
-        var userPass = req.body.password;
-
-        console.log("54 " + firstName);
-        console.log("55 " + lastName);
-        console.log("55 " + username);
-        console.log("56 " + userEmail);
-        console.log("57 " + userPhone);
-        // console.log("58 " + userPass);
-
-        connection.query("INSERT INTO users SET ? ",
-            {
-                first_name: firstName,
-                last_name: lastName,
-                phone_number: userPhone,
-                email_add: userEmail,
-                user_name: username,
-                user_password: userPass
-            },
-
-            function (err, data) {
-                console.log("line 73");
-                if (err) throw err;
-                console.log("User was successfully added to the database.")
-                res.json(data)
-            }
-        )
-    })
-=======
->>>>>>> 9b580105f4d523f885bc0684587e90a0ca970b69
 
     app.post("/new-user", function (req, res) {
 
+        var fullName = req.body.full_name;
         var username = req.body.user_name;
         var email = req.body.email_add;
         var phone = req.body.phone_number;
         var password = req.body.user_password;
-        var queryInsert = "INSERT INTO users (user_id, email_add, user_password, phone_number)VALUES ("+ username +", "+ email +", "+ phone +", "+ password +")"
+        var queryInsert = "INSERT INTO users (full_name, email_add, user_password, phone_number)VALUES ("+ fullName +","+ username +", "+ email +", "+ phone +", "+ password +")"
 
         connection.query(queryInsert, function(err, result){
             if (err) throw err;
@@ -119,11 +82,3 @@ var newUser = function (app) {
         // newUser: newUser
     }
 
-<<<<<<< HEAD
-module.exports = {
-    updateDB: updateDB,
-    displayDB: displayDB,
-    newUser: newUser
-}
-=======
->>>>>>> 9b580105f4d523f885bc0684587e90a0ca970b69
