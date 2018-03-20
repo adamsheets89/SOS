@@ -35,7 +35,6 @@ var sendHelp = function (app) {
 module.exports = {
     index: index,
     allies: allies,
-    alliesList: alliesList,
     createAccount: createAccount,
     login: login,
     sendHelp: sendHelp
