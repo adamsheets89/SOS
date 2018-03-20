@@ -42,9 +42,9 @@
         <tbody id="new-allies">
             {{#each data}}
             <tr>
-                <td id="name">{{ally_name}}</td>
-                <td id="phone">{{phone_number}}</td>
-                <td id="email">{{email_add}}</td>
+                <td class="allyname">{{ally_name}}</td>
+                <td class="allyphone">{{phone_number}}</td>
+                <td class="allyemail">{{email_add}}</td>
             </tr>
             {{/each}}
         </tbody>
@@ -55,9 +55,9 @@
 <script>
     $("#submit").on("click", function (event) {
         event.preventDefault();
-        $("#name").empty()
-        $("#phone").empty()
-        $("#email").empty()
+        $(".allyname").empty()
+        $(".allyphone").empty()
+        $(".allyemail").empty()
 
         var newAllyObj = {
             name: $("#name").val(),
