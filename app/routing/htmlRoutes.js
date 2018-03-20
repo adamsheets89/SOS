@@ -11,12 +11,6 @@ var allies = function (app) {
     })
 };
 
-var alliesList = function (app) {
-    app.get("/allies-list", function (req, res) {
-        res.render("allies-list")
-    })
-}
-
 var createAccount = function (app) {
     app.get("/new-user", function (req, res) {
         res.render("new")
@@ -35,6 +29,8 @@ var sendHelp = function (app) {
         res.render("call")
     })
 };
+
+
 
 module.exports = {
     index: index,
