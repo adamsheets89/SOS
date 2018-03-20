@@ -1,25 +1,17 @@
 var connection = require("../config/connection");
 var express = require("express");
-var router = express.Router();
-var bcrypt = require("bcrypt");
 var app = express();
-// need another route for pulling up all existing allies
-// app.get("/api/allies")
 
-var displayDB = function (app) {
-    app.get("/api/allies", function (req, res) {
-        connection.query("SELECT * FROM allies", function (err, results) {
-            for (var i = 0; i > results.length; i++) {
-                var allyName = results[i].ally_name;
-                var allyPhone = results[i].phone_number;
-                var allyEmail = results[i].email_add;
-            }
-            console.log("results: " + results);
+var displayAllies = function (app) {
+    app.get("/display", function (req, res) {
+        connection.query("SELECT * FROM allies WHERE user_id = ?", [req.session.user_id], function (err, results) {
+            console.log("line 8 ", results)
+            res.render("allies", {"data" : results});
+
         })
     })
 }
 
-// this is route for adding an ally
 var updateDB = function (app) {
     app.post("/api/allies", function (req, res) {
         var allyName = req.body.name;
@@ -41,9 +33,13 @@ var updateDB = function (app) {
                 console.log("line 35");
                 if (err) throw err;
                 console.log("Ally was successfully added to the database.")
-                res.json(data)
             }
         );
+        connection.query("SELECT * FROM allies WHERE user_id = ?", [req.session.user_id], function (err, results) {
+            console.log("43 , results: " + JSON.stringify(results));
+            res.send(results);
+
+        })
     })
 }
 
@@ -67,7 +63,7 @@ var login = function (app) {
                 req.session.phone_number = response[0].phone_number;
                 req.session.user_name = response[0].user_name;
                 console.log("line 67");
-                res.redirect('/allies');
+                res.redirect('/display');
                 console.log("here too");
             } else {
                 console.log("line 71");
@@ -109,8 +105,8 @@ var newUser = function (app) {
 }
 
 module.exports = {
+    displayAllies: displayAllies,
     updateDB: updateDB,
-    displayDB: displayDB,
     login: login,
     newUser: newUser
 }

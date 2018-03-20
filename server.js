@@ -25,6 +25,7 @@ app.set("views", path.join(__dirname, "./app/views"));
 //route controllers
 var htmlController = require("./app/routing/htmlRoutes.js");
 var postController = require("./app/routing/postRoutes.js");
+var sendController = require("./app/routing/sendRoutes.js");
 // var usersController = require("./app/public/javascript/userAuthentication.js");
 
 htmlController.index(app);
@@ -32,10 +33,11 @@ htmlController.allies(app);
 htmlController.createAccount(app);
 htmlController.login(app);
 htmlController.sendHelp(app);
+postController.displayAllies(app);
 postController.updateDB(app);
-postController.displayDB(app);
 postController.newUser(app);
 postController.login(app);
+sendController.message(app);
 
 var port = process.env.PORT || 4040;
 
