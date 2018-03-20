@@ -31,15 +31,22 @@
 
 <div id="tableContainer">
     <h2> Your Allies </h2>
-    <table>
+    <table method="GET" action="/display">
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Email</th>
                 <th>Phone Number</th>
+                <th>Email</th>
             </tr>
         </thead>
         <tbody id="new-allies">
+            {{#each data}}
+            <tr>
+                <td id="name">{{ally_name}}</td>
+                <td id="phone">{{phone_number}}</td>
+                <td id="email">{{email_add}}</td>
+            </tr>
+            {{/each}}
         </tbody>
     </table>
 </div>
@@ -48,7 +55,9 @@
 <script>
     $("#submit").on("click", function (event) {
         event.preventDefault();
-        $("#tableContainer").empty()
+        $("#name").empty()
+        $("#phone").empty()
+        $("#email").empty()
 
         var newAllyObj = {
             name: $("#name").val(),
@@ -78,5 +87,4 @@
             $('#form').trigger("reset");
         })
     });
-</script> {{!-- END EMAIL --}} {{!-- do a value thing and set the variable of value in the form to thew same one --}} {{!-- equal
-the values and the things that you eill be inserting but equal them like {{whatevs}}--}}
+</script>

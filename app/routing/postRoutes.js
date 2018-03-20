@@ -2,6 +2,16 @@ var connection = require("../config/connection");
 var express = require("express");
 var app = express();
 
+var displayAllies = function (app) {
+    app.get("/display", function (req, res) {
+        connection.query("SELECT * FROM allies WHERE user_id = ?", [req.session.user_id], function (err, results) {
+            console.log("line 8 ", results)
+            res.render("allies", {"data" : results});
+
+        })
+    })
+}
+
 var updateDB = function (app) {
     app.post("/api/allies", function (req, res) {
         var allyName = req.body.name;
@@ -53,7 +63,7 @@ var login = function (app) {
                 req.session.phone_number = response[0].phone_number;
                 req.session.user_name = response[0].user_name;
                 console.log("line 67");
-                res.redirect('/allies');
+                res.redirect('/display');
                 console.log("here too");
             } else {
                 console.log("line 71");
@@ -95,6 +105,7 @@ var newUser = function (app) {
 }
 
 module.exports = {
+    displayAllies: displayAllies,
     updateDB: updateDB,
     login: login,
     newUser: newUser

@@ -33,6 +33,7 @@ htmlController.allies(app);
 htmlController.createAccount(app);
 htmlController.login(app);
 htmlController.sendHelp(app);
+postController.displayAllies(app);
 postController.updateDB(app);
 postController.newUser(app);
 postController.login(app);
