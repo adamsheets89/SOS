@@ -1,25 +1,7 @@
 var connection = require("../config/connection");
 var express = require("express");
-var router = express.Router();
-var bcrypt = require("bcrypt");
 var app = express();
-// need another route for pulling up all existing allies
-// app.get("/api/allies")
 
-var displayDB = function (app) {
-    app.get("/api/allies", function (req, res) {
-        connection.query("SELECT * FROM allies", function (err, results) {
-            for (var i = 0; i > results.length; i++) {
-                var allyName = results[i].ally_name;
-                var allyPhone = results[i].phone_number;
-                var allyEmail = results[i].email_add;
-            }
-            console.log("results: " + results);
-        })
-    })
-}
-
-// this is route for adding an ally
 var updateDB = function (app) {
     app.post("/api/allies", function (req, res) {
         var allyName = req.body.name;
@@ -41,9 +23,13 @@ var updateDB = function (app) {
                 console.log("line 35");
                 if (err) throw err;
                 console.log("Ally was successfully added to the database.")
-                res.json(data)
             }
         );
+        connection.query("SELECT * FROM allies WHERE user_id = ?", [req.session.user_id], function (err, results) {
+            console.log("43 , results: " + JSON.stringify(results));
+            res.send(results);
+
+        })
     })
 }
 
@@ -110,7 +96,6 @@ var newUser = function (app) {
 
 module.exports = {
     updateDB: updateDB,
-    displayDB: displayDB,
     login: login,
     newUser: newUser
 }
