@@ -48,6 +48,7 @@
 <script>
     $("#submit").on("click", function (event) {
         event.preventDefault();
+        $("#tableContainer").empty()
 
         var newAllyObj = {
             name: $("#name").val(),
@@ -65,7 +66,6 @@
                 console.log(allyName);
                 console.log(allyPhone);
                 console.log(allyEmail);
-
                 $("#tableContainer").append(
                     "<tr class='allies'><td scope='ally-name'-> " + allyName +
                     "</td><td scope='ally-phone'> " + allyPhone +
@@ -73,8 +73,9 @@
             }
             // make div show up at bottom that shows the poeple tht they have added to their friends and things
             // connect to exported function that is in the3 api route
-            console.log("data" + dataObj);
 
+            console.log("data" + dataObj);
+            $('#form').trigger("reset");
         })
     });
 </script> {{!-- END EMAIL --}} {{!-- do a value thing and set the variable of value in the form to thew same one --}} {{!-- equal

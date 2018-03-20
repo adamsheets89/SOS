@@ -18,7 +18,7 @@ var sendMessage = function (app) {
 //function with for loop to run through allies and send a message to each phone number
 connection.query ('SELECT * FROM allies', function(err, thingsFromDb){
   console.log("thingsFromDb", thingsFromDb)
-  for 
+
 nexmo.message.sendSms(
     12092694056, thingsFromDb[i], req.body.message,
       (err, responseData) => {
