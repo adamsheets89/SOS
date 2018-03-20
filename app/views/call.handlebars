@@ -11,27 +11,54 @@
 
  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
  <script>
-
+ 
  $(function() {
       $("#button1").click( function()
            {
-             alert('I am ok');
+               console.log("button was clicked");
+               var message = {message:"Hey, I'm ok! I'll call you later!"}
+             $.ajax({
+      type: 'POST',
+      url: "/text",
+      data: message,
+      success: function(resultsBack) {
+      	console.log('This is what we got back form the backend!!!', resultsBack);
+      }
+});
            }
       );
 });
 
-$(function() {
+ $(function() {
       $("#button2").click( function()
            {
-             alert('Call me with an excuse, so I can leave this situation');
+               console.log("button was clicked");
+               var message = {message:"Hey, give me a call, I need an excuse to get out of here!"}
+             $.ajax({
+      type: 'POST',
+      url: "/text",
+      data: message,
+      success: function(resultsBack) {
+      	console.log('This is what we got back form the backend!!!', resultsBack);
+      }
+});
            }
       );
 });
 
-$(function() {
+ $(function() {
       $("#button3").click( function()
            {
-             alert('Help me, I feel unsafe');
+               console.log("button was clicked");
+               var message = {message:"Hey, I need to get out of here NOW! Help!"}
+             $.ajax({
+      type: 'POST',
+      url: "/text",
+      data: message,
+      success: function(resultsBack) {
+      	console.log('This is what we got back form the backend!!!', resultsBack);
+      }
+});
            }
       );
 });
