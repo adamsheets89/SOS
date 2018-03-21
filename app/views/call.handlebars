@@ -1,76 +1,95 @@
 <div id="allcallbuttons">
-<button id= "button1"><input type = 'image' id= 'ok' src= "./public/images/ok.jpg" alt= "ok"></button>
-<!---should trigger the ok message on the send routes-->
+      <button id="button1">
+            <input type='image' id='ok' src="./public/images/ok.jpg" alt="ok">
+      </button>
+      <!---should trigger the ok message on the send routes-->
 
 
-<button id= "button2"><input type = 'image' id = 'call'  src= "./public/images/call_me.jpg" alt= "callme"></button>
-<!--should trigger the callMe message in the send routes-->    
+      <button id="button2">
+            <input type='image' id='call' src="./public/images/call_me.jpg" alt="callme">
+      </button>
+      <!--should trigger the callMe message in the send routes-->
 
 
-<button id= "button3" ><input type = 'image' id= 'help' src= "./public/images/help.jpg" alt= "helpme"></button>
-<!--should trigger the help message on the send routes-->
+      <button id="button3">
+            <input type='image' id='help' src="./public/images/help.jpg" alt="helpme">
+      </button>
+      <!--should trigger the help message on the send routes-->
 </div>
- <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
- <script>
- 
- $(function() {
-      $("#button1").click( function()
-           {
-               console.log("button was clicked");
-               var message = {message:"Hey, I'm ok! I'll call you later!"}
-             $.ajax({
-      type: 'POST',
-      url: "/text",
-      data: message,
-      success: function(resultsBack) {
-      	console.log('This is what we got back form the backend!!!', resultsBack);
-      }
-});
-           }
-      );
-});
 
- $(function() {
-      $("#button2").click( function()
-           {
-               console.log("button was clicked");
-               var message = {message:"Hey, give me a call, I need an excuse to get out of here!"}
-             $.ajax({
-      type: 'POST',
-      url: "/text",
-      data: message,
-      success: function(resultsBack) {
-      	console.log('This is what we got back form the backend!!!', resultsBack);
-      }
-});
-           }
-      );
-});
+<!-- Modal -->
+<div class="modal-fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+            <div class="modal-content">
+                  <div class="modal-header">
+                        <h5>Your message has been sent to your allies.</h5>
+                        <!-- modal content  -->
+                  </div>
+                  <div class="modal-body">
+                        <br>
+                        <button type="button" class="btn btn-default" id="close-message" data-dimiss="modal">Ok</button>
+                        <br>
+                  </div>
+            </div>
+      </div>
+</div>
 
- $(function() {
-      $("#button3").click( function()
-           {
-               console.log("button was clicked");
-               var message = {message:"Hey, I need to get out of here NOW! Help!"}
-             $.ajax({
-      type: 'POST',
-      url: "/text",
-      data: message,
-      success: function(resultsBack) {
-      	console.log('This is what we got back form the backend!!!', resultsBack);
-      }
-});
-           }
-      );
-});
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
 
- </script>
+      $(function () {
+            $("#button1").click(function () {
+                  console.log("button was clicked");
+                  var message = { message: "Hey, I'm ok! I'll call you later!" }
+                  $.ajax({
+                        type: 'POST',
+                        url: "/text",
+                        data: message,
+                        success: function (resultsBack) {
+                              console.log('This is what we got back form the backend!!!', resultsBack);
+                        }
+                  });
+                  $("#myModal").show();
+            }
+            );
+      });
 
-   
- 
-   
-   
- 
-   
- 
-   
+      $(function () {
+            $("#button2").click(function () {
+                  console.log("button was clicked");
+                  var message = { message: "Hey, give me a call, I need an excuse to get out of here!" }
+                  $.ajax({
+                        type: 'POST',
+                        url: "/text",
+                        data: message,
+                        success: function (resultsBack) {
+                              console.log('This is what we got back form the backend!!!', resultsBack);
+                        }
+                  });
+                  $("#myModal").show();
+            }
+            );
+      });
+
+      $(function () {
+            $("#button3").click(function () {
+                  console.log("button was clicked");
+                  var message = { message: "Hey, I need to get out of here NOW! Help!" }
+                  $.ajax({
+                        type: 'POST',
+                        url: "/text",
+                        data: message,
+                        success: function (resultsBack) {
+                              console.log('This is what we got back form the backend!!!', resultsBack);
+                        }
+                  });
+                  $("#myModal").show();
+            }
+            );
+      });
+
+      $("#close-message").on("click", function (event) {
+            $("#myModal").hide();
+      });
+
+</script>

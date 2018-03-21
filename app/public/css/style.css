@@ -133,6 +133,17 @@ button{
 
 }
 
+.modal-fade {
+    display: none;
+}
+
+#close-message {
+    text-align: center;
+    width: fit-content;
+    font-size: 21px;
+
+}
+
 #tableContainer {
    margin-left: 300px;
    margin-top: 110px;

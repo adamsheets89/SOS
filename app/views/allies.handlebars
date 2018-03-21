@@ -57,11 +57,11 @@
 <script>
     $("#submitallies").on("click", function (event) {
         event.preventDefault();
-        debugger;
+        location.reload();
         $(".allyname").hide()
         $(".allyphone").hide()
         $(".allyemail").hide()
-        debugger;
+
         var newAllyObj = {
             name: $("#name").val(),
             phone: $("#phone").val(),
@@ -85,7 +85,7 @@
             }
             // make div show up at bottom that shows the poeple tht they have added to their friends and things
             // connect to exported function that is in the3 api route
-            debugger;
+           
             console.log("data" + dataObj);
             $('#form').trigger("reset");
         })

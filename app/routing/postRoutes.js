@@ -99,7 +99,7 @@ var newUser = function (app) {
                 if (err) throw err;
                 console.log("One record inserted");
             });
-        res.redirect("../allies")
+        res.redirect("../login")
     });
 }
 
