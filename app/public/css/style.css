@@ -1,95 +1,181 @@
-/* MAIN HANDLEBARS */
+
 .jumbotron {
-    padding: 0px;
-    margin-top: 0px;
-    font-size: 20px;
-    background-color: white;
-    
+   padding: 0px;
+   margin-top: 0px;
+   font-size: 20px;
+   background-color: white;
+   
 }
 
 #SOS {
-    margin-left: 41%;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    padding: 0px;
-    height: 250px
+   margin-left: 41%;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   padding: 0px;
+   height: 250px
 
 }
 
 .slogan {
-    margin-bottom: 0px;
-    margin-right: 72px;
-    padding: 0px;
-    margin-bottom: 0px;
+   margin-bottom: 0px;
+   margin-right: 25px;
+   padding: 0px;
+   margin-bottom: 0px;
 }
 
+/* footer {
+   margin-bottom: 0%;
+   margin-top: 265px
+} */
 
 /* INDEX BUTTONS TO LOGIN OR CREATE */
 .btn {
-    margin-right: 10px;
-    margin-left: 295px;
-    padding: 20px;
-    width: 350px;
-    font-size: 50px;
-    border-radius: 25px;
+   margin-right: 160px;
+   margin-left: 295px;
+   font-size: 21px;
+   padding: 10px;
+   width: 250px;
+   border-radius: 25px;
 }
 
 
 /* CALL BUTTONS */
 #ok {
-    display: inline-block;
-    height: 134px;
-    padding: 0;
-    margin: 50px;
-    vertical-align: top;
-    width: 104px;
+   display: inline-block;
+   height: 134px;
+   padding: 0;
+   margin: 50px;
+   vertical-align: top;
+   width: 104px;
 }
 
 #call {
-    display: inline-block;
-    height: 134px;
-    padding: 0;
-    margin: 50px;
-    vertical-align: top ;
-    width: 104px;
+   display: inline-block;
+   height: 134px;
+   padding: 0;
+   margin: 50px;
+   vertical-align: top ;
+   width: 104px;
 }
 
 #help {
-    display: inline-block;
-    height: 134px;
-    padding: 0;
-    margin: 50px;
-    vertical-align: top;
-    width: 104px;
+   display: inline-block;
+   height: 134px;
+   padding: 0;
+   margin: 50px;
+   vertical-align: top;
+   width: 104px;
 }
 
 button{
-    vertical-align: middle;
+   vertical-align: middle;
 }
 
 
 /* LOGIN FORM */
 #loginbutton {
-    margin-top: 15px;
-    margin-right: 355px;
-    font-size: 21px;
-    margin-bottom: 10px;
-    padding: 15px;
-    width: fit-content
+   margin-top: 15px;
+   margin-right: 350px;
+   font-size: 21px;
+   margin-bottom: 10px;
+   padding: 15px;
+   width: fit-content
 }
 
 #loginStuff {
-    margin-top: 65px;
-    text-align: center;
+   margin-top: 65px;
+   text-align: center;
 }
 #login {
-    margin-top: 150px;
-    margin-left: 752px;
+   margin-top: 150px;
+   margin-left: 650px;
 }
 #inputBoxLogin {
-    margin-top: 0px;
-    margin-right: 70px;
+   margin-top: 0px;
+   margin-right: 79px;
 }
 
 
 /* CREATE FORM */
+
+#submit {
+   margin-top: 15px;
+   font-size: 21px;
+   margin-left: 609px;
+   margin-bottom: 10px;
+   padding: 15px;
+   width: fit-content
+}
+
+#createStuff {
+   margin-top: 65px;
+   text-align: center;
+}
+#create {
+   margin-top: 150px;
+   margin-left: 595px;
+}
+
+#inputBoxCreate {
+   margin-right: 52px;
+}
+
+/* ALLIES PAGE */
+#submitallies{
+   font-size: 21px;
+   padding: 15px;
+   width: fit-content;
+   margin-left: 5px;
+}
+.alliesAll {
+   margin-left: 250px;
+   margin-top: 120px;
+
+}
+
+#tableContainer {
+   margin-left: 300px;
+   margin-top: 110px;
+   margin-bottom: 120px;
+}
+
+
+table {
+   font-family: arial, sans-serif;
+   width: 100%;
+}
+
+td, th {
+   border: 1px solid #dddddd;
+   text-align: left;
+   padding: 8px;
+}
+
+tr:nth-child(even) {
+   background-color: #dddddd;
+}
+
+
+/* CALL PAGE */
+
+#allcallbuttons {
+  margin-left: 370px;
+font-weight: bold;
+}
+
+
+/* QUERIES */
+
+@media screen
+ and (min-device-width: 1200px)
+ and (max-device-width: 1600px)
+ and (-webkit-min-device-pixel-ratio: 1) { 
+}
+
+
+@media screen
+ and (min-device-width: 1200px)
+ and (max-device-width: 1600px)
+ and (-webkit-min-device-pixel-ratio: 2)
+ and (min-resolution: 192dpi) { 
+}

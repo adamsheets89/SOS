@@ -17,11 +17,10 @@ var sendMessage = function (app) {
 
     //function with for loop to run through allies and send a message to each phone number
     connection.query('SELECT * FROM allies WHERE user_id = ?', [req.session.user_id], function (err, thingsFromDb) {
-      console.log("thingsFromDb", thingsFromDb)
 
-      for (var i = 0; i > thingsFromDb.length; i++) {
+      for (var i = 0; i < thingsFromDb.length; i++) {
         var phoneNumber = thingsFromDb[i].phone_number;
-        console.log("phone: " + phoneNumber);
+        console.log("23 - phone: " + phoneNumber);
 
         nexmo.message.sendSms(
           12092694056, phoneNumber, req.body.message,

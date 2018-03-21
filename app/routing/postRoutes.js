@@ -5,7 +5,6 @@ var app = express();
 var displayAllies = function (app) {
     app.get("/display", function (req, res) {
         connection.query("SELECT * FROM allies WHERE user_id = ?", [req.session.user_id], function (err, results) {
-            console.log("line 8 ", results)
             res.render("allies", {"data" : results});
 
         })

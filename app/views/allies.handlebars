@@ -1,64 +1,67 @@
-{{!-- this is the file where we will be making a form that takes in the data of whatever eas out and stores it in the tabel
---}} {{!-- make the form --}}
-
+<div class="row">
+<div class="alliesAll">
 <form id="form" method="POST" action="/allies">
-    <div class="row">
-        <div class="col">
-            <label for="exampleFormControlInput3">Name: </label>
-            <input name="name" id="name" type="text" class="form-control" placeholder="Name">
-        </div>
-    </div>
+<h2>Add an Ally</h2>
+   <div class="form-group">
+       <label for="exampleFormControlInput3"></label>
+           <input name="name" id="name" type="text" placeholder="Name">
+   </div>
 
-    {{!-- NAME END --}} {{!-- PHONE START --}}
 
-    <div class="row">
-        <div class="col">
-            <label for="exampleFormControlInput2">Phone Number: </label>
-            <input name="phone" id="phone" type="Phone Number" class="form-control" placeholder="Enter Phone Number">
-        </div>
-    </div>
+   <div class="form-group">
+       <label for="exampleFormControlInput2"></label>
+       <input name="phone" id="phone" type="number" placeholder="Enter Phone Number">
+   </div>
 
-    {{!-- PHONE END --}} {{!-- EMAIL --}}
 
-    <div class="form-group">
-        <label for="exampleFormControlInput3">Email Address: </label>
-        <input name="email" id="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-    </div>
 
-    <button id="submit" type="button" class="btn btn-danger">Submit Friend</button>
+   <div class="form-group">
+       <label for="exampleFormControlInput3"></label>
+       <input name="email" id="email" type="email" id="exampleFormControlInput1" placeholder="name@example.com">
+   </div>
+
+   <button id="submitallies" type="button" class="btn btn-danger">Submit Friend</button>
 
 </form>
+</div>
+
+
+
+
 
 <div id="tableContainer">
-    <h2> Your Allies </h2>
-    <table method="GET" action="/display">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Phone Number</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody id="new-allies">
-            {{#each data}}
-            <tr>
-                <td class="allyname">{{ally_name}}</td>
-                <td class="allyphone">{{phone_number}}</td>
-                <td class="allyemail">{{email_add}}</td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
+   <h2> Your Allies </h2>
+   <table method="GET" action="/display">
+       <thead>
+           <tr>
+               <th>Name</th>
+               <th>Phone Number</th>
+               <th>Email</th>
+           </tr>
+       </thead>
+       <tbody id="new-allies">
+           {{#each data}}
+           <tr>
+               <td class="allyname">{{ally_name}}</td>
+               <td class="allyphone">{{phone_number}}</td>
+               <td class="allyemail">{{email_add}}</td>
+           </tr>
+           {{/each}}
+       </tbody>
+   </table>
+</div>
+</div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-    $("#submit").on("click", function (event) {
+    $("#submitallies").on("click", function (event) {
         event.preventDefault();
-        $(".allyname").empty()
-        $(".allyphone").empty()
-        $(".allyemail").empty()
-
+        debugger;
+        $(".allyname").hide()
+        $(".allyphone").hide()
+        $(".allyemail").hide()
+        debugger;
         var newAllyObj = {
             name: $("#name").val(),
             phone: $("#phone").val(),
@@ -82,7 +85,7 @@
             }
             // make div show up at bottom that shows the poeple tht they have added to their friends and things
             // connect to exported function that is in the3 api route
-
+            debugger;
             console.log("data" + dataObj);
             $('#form').trigger("reset");
         })
