@@ -1,7 +1,9 @@
 var mysql = require("mysql");
 var app = require("../../server");
 
-if (app.settings.env == 'development') {
+if (process.env.JAWSDB_URL) {
+    var connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
     var connection = mysql.createConnection({
         port: 3306,
         host: "localhost",
@@ -9,8 +11,6 @@ if (app.settings.env == 'development') {
         password: "",
         database: "SOS_db"
     });
-} else {
-    var connection = mysql.createConnection(process.env.JAWSDB_URL);
 }
 
 connection.connect(function (err) {

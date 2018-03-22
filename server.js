@@ -10,7 +10,7 @@ var app = module.exports = express();
 
 var connection = require("./app/config/connection")
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "./app")));
+app.use(express.static(path.join(__dirname, "./app/public")));
 app.use(bodyParser.json());
 
 app.use(session({ secret: 'app', cookie: { maxAge: 6*10000*10000*10000*10000*10000*10000 }}));
